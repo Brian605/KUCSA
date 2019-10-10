@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">KUCSA APP</string>
+    <string name="contacts">Contacts</string>
+    <string name="new_message">New Message</string>
+    <string name="new_event">New Event</string>
+    <string name="kucsa">KUCSA</string>
+    <string name="events">Events</string>
+    <string name="sentbox">SentBox</string>
+    <string name="outbox">Outbox</string>
+    <string name="inbox">Inbox</string>
+    <string name="registered_contacts">Registered Contacts</string>
+    <string name="no_contacts_available">No Contacts Available</string>
+    <string name="username">Username</string>
+    <string name="_3_1">3.1</string>
+    <string name="applied_computer_science">Applied Computer Science</string>
+    <string name="_0748267133">0748267133</string>
+    <string name="in14_20516_17">IN14/20516/17</string>
+    <string name="new_contact">Add New</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="reg_number">Registration Number</string>
+    <string name="course">Course</string>
+    <string name="year_of_study">Year Of Study</string>
+    <string name="date_of_reg">Date Of Registration (dd/mm/yyyy)</string>
+    <string name="add_new_contact">Add New User</string>
+    <string name="no_messages_available_for_this_category">No Messages Available For This Category</string>
+    <string name="send_bulk_sms">Send Bulk Sms</string>
+    <string name="prompt"><![CDATA[This apps need permission to send sms. Click \"Take Me To Settings\">>Permissions>>Enable For SMS]]></string>
+</resources>

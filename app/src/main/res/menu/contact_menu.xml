@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/addNew"
+        android:icon="@drawable/account"
+        android:title="@string/new_contact" />
+    <item
+        android:title="@string/send_bulk_sms"
+        android:id="@+id/bulksms"/>
+
+</menu>
