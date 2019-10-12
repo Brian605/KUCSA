@@ -8,6 +8,28 @@
     android:background="@color/colorwhite"
     tools:context="com.return0.Kucsa.NewMessageActivity">
 
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        style="@style/AppTheme.AppBarOverlay"
+        android:layout_marginBottom="10dp"
+        android:layout_height="wrap_content">
 
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:id="@+id/toolbar"
+            app:popupTheme="@style/AppTheme.PopupOverlay"
+            android:background="@color/colorblue">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/new_message"
+                android:textColor="@color/colorwhite"
+                android:textStyle="bold"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"/>
+
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
 
 </RelativeLayout>

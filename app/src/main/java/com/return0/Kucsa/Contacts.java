@@ -116,9 +116,7 @@ public class Contacts extends AppCompatActivity {
       Dmanager.close();
 
       for(final String number:numbers){
-   new Handler().postDelayed(new Runnable() {
-       @Override
-       public void run() {
+          Toast.makeText(getApplicationContext(),number,Toast.LENGTH_LONG).show();
            Dexter.withActivity(Contacts.this)
                    .withPermission(Manifest.permission.SEND_SMS)
                    .withListener(new PermissionListener() {
@@ -170,11 +168,12 @@ public class Contacts extends AppCompatActivity {
                }
            }).check();
 
-
-       }
-   },5000) ;
-
-
+          new Thread();
+          try {
+              Thread.sleep(5000);
+          } catch (InterruptedException e) {
+              e.printStackTrace();
+          }
 
       }
 

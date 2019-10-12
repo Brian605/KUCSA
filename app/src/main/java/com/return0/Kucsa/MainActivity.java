@@ -104,4 +104,9 @@ public class MainActivity extends AppCompatActivity {
     public void gotoContacts(){
         startActivity(new Intent(MainActivity.this,Contacts.class));
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+    }
 }
