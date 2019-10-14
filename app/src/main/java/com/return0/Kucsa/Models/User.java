@@ -1,4 +1,4 @@
-package com.return0.Kucsa;
+package com.return0.Kucsa.Models;
 
 public class User {
    private String phoneNumber,registrationNumber,UserName,Course,YearOfStudy,RegDate;

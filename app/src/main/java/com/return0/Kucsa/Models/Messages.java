@@ -1,4 +1,4 @@
-package com.return0.Kucsa;
+package com.return0.Kucsa.Models;
 
 public class Messages {
     private String message,status,category,phoneNumber;

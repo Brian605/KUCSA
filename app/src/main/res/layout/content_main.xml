@@ -8,7 +8,7 @@
     android:theme="@style/AppTheme"
     android:orientation="vertical"
     android:background="@color/colorwhite"
-    tools:context=".MainActivity">
+    tools:context=".Activities.MainActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"

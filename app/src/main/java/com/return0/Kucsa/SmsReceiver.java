@@ -28,7 +28,7 @@ public class SmsReceiver extends BroadcastReceiver {
 
                         String message = smsMessage.getMessageBody();
                         if (message.startsWith("KUCSA")){
-                            String phoneNumber = smsMessage.getDisplayOriginatingAddress();
+                            String phoneNumber = smsMessage.getDisplayOriginatingAddress().trim().replace("+254","0");
                             String[] regMessage= message.split("\\.");
                             String registrationNumber = regMessage[1];
                             String username = regMessage[2];

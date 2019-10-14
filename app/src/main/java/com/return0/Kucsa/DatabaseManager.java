@@ -6,7 +6,12 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.return0.Kucsa.Models.Messages;
+import com.return0.Kucsa.Models.NewMessage;
+import com.return0.Kucsa.Models.User;
+
 import java.util.ArrayList;
+import java.util.List;
 
 public class DatabaseManager {
 
@@ -14,11 +19,11 @@ public class DatabaseManager {
     private SQLiteDatabase database;
     private DatabaseHelper helper;
 
-    DatabaseManager(Context context){
+    public DatabaseManager(Context context){
         this.context=context;
     }
 
-    DatabaseManager open() throws SQLException{
+    public DatabaseManager open() throws SQLException{
         this.helper=new DatabaseHelper(this.context);
         this.database=this.helper.getWritableDatabase();
 
@@ -64,7 +69,7 @@ public class DatabaseManager {
       return this.database.update(DatabaseHelper.TB_NAME,contentValues,DatabaseHelper._ID+"="+id,null);
   }
 
-  ArrayList<User> fetchUsers(){
+  public ArrayList<User> fetchUsers(){
    String sql="SELECT * FROM "+DatabaseHelper.TB_NAME;
    ArrayList<User> Users=new ArrayList<>();
    Cursor cursor=this.database.rawQuery(sql,null);
@@ -100,7 +105,12 @@ public class DatabaseManager {
         this.database.delete(DatabaseHelper.TB_NAME,DatabaseHelper._ID+"="+id,null);
 
     }
-    ArrayList<String> fetchContacts(){
+
+    public void deleteMessage(int id){
+        this.database.delete(DatabaseHelper.MSG_TABLE,DatabaseHelper._ID+"="+id,null);
+
+    }
+    public ArrayList<String> fetchContacts(){
         String sql="SELECT phone FROM "+DatabaseHelper.TB_NAME;
         ArrayList<String> numbers=new ArrayList<>();
         Cursor cursor=this.database.rawQuery(sql,null);
@@ -116,7 +126,26 @@ public class DatabaseManager {
         return numbers;
 
     }
-    ArrayList<Messages> fetchMessages(String category){
+    public List<NewMessage> fetchNewMessage(){
+    String sql="SELECT "+DatabaseHelper.PHONE+","+DatabaseHelper.USER+","+DatabaseHelper.STUDYEAR+" FROM "+DatabaseHelper.TB_NAME;
+    List<NewMessage> newMessages=new ArrayList<>();
+    Cursor cursor=this.database.rawQuery(sql,null);
+    if (cursor.moveToFirst()){
+        do {
+            String phonenumber,year,user;
+            phonenumber=cursor.getString(cursor.getColumnIndex(DatabaseHelper.PHONE));
+            year=cursor.getString(cursor.getColumnIndex(DatabaseHelper.STUDYEAR));
+            user=cursor.getString(cursor.getColumnIndex(DatabaseHelper.USER));
+
+            newMessages.add(new NewMessage(phonenumber,user,year,false));
+        }while (cursor.moveToNext());
+    }
+    cursor.close();
+    return newMessages;
+
+    }
+
+    public ArrayList<Messages> fetchMessages(String category){
         String sql="SELECT * FROM "+DatabaseHelper.MSG_TABLE +" WHERE "+DatabaseHelper.CATEGORY+"='"+category+"';";
         ArrayList<Messages> messages=new ArrayList<>();
         Cursor cursor=this.database.rawQuery(sql,null);

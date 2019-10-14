@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/colorwhite"
-    tools:context="com.return0.Kucsa.Contacts">
+    tools:context="com.return0.Kucsa.Activities.Contacts">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"

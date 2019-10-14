@@ -1,16 +1,17 @@
-package com.return0.Kucsa;
+package com.return0.Kucsa.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.textfield.TextInputEditText;
+import com.return0.Kucsa.DatabaseManager;
+import com.return0.Kucsa.R;
 
 public class NewContactActivity extends AppCompatActivity {
  private TextInputEditText phoneText,regText,userText,courseText,yearText,regDateText;
@@ -49,7 +50,7 @@ public class NewContactActivity extends AppCompatActivity {
                  manager.open();
                  manager.insert(phone,reg,user,course,year,date);
 
-                 startActivity(new Intent(NewContactActivity.this,Contacts.class));
+                 startActivity(new Intent(NewContactActivity.this, Contacts.class));
 
                 }
 

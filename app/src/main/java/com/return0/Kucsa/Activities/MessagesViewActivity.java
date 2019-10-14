@@ -1,16 +1,25 @@
-package com.return0.Kucsa;
+package com.return0.Kucsa.Activities;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.return0.Kucsa.Adapters.MessageAdapter;
+import com.return0.Kucsa.DatabaseManager;
+import com.return0.Kucsa.Models.Messages;
+import com.return0.Kucsa.R;
+import com.return0.Kucsa.RecyclerOnclickListener;
 
 import java.util.ArrayList;
 
@@ -51,13 +60,43 @@ public class MessagesViewActivity extends AppCompatActivity {
         messages=Dmanager.fetchMessages(pool);
         if (messages.size()>0){
         recyclerView.setVisibility(View.VISIBLE);
-        adapter=new MessageAdapter(MessagesViewActivity.this,messages);
+        adapter=new MessageAdapter(MessagesViewActivity.this, messages, new RecyclerOnclickListener() {
+            @Override
+            public void onclick(View parent, int position) {
+                deleteMessage(parent);
+            }
+        });
         recyclerView.setAdapter(adapter);
 
         }else{
             recyclerView.setVisibility(View.GONE);
             findViewById(R.id.nomessages).setVisibility(View.VISIBLE);
         }
+
+
+    }
+
+    private void deleteMessage(final View parent) {
+
+        AlertDialog.Builder builder=new AlertDialog.Builder(MessagesViewActivity.this);
+        builder.setMessage("Delete Message?");
+        builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                TextView string=parent.findViewById(R.id.ID);
+                int messageId=Integer.parseInt(string.getText().toString());
+                Dmanager=new DatabaseManager(MessagesViewActivity.this);
+                Dmanager.open();
+                Dmanager.deleteMessage(messageId);
+                Toast.makeText(getApplicationContext(), "Message Deleted", Toast.LENGTH_LONG).show();
+                Dmanager.close();
+               recreate();
+
+            }
+        });
+        builder.setCancelable(true);
+        builder.create();
+        builder.show();
 
 
     }

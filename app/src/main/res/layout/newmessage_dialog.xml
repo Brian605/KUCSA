@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="@color/colorwhite"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:hint="@string/type_your_message_here"
+        android:layout_marginTop="10dp"
+        android:layout_margin="10dp"
+        android:id="@+id/message"
+        android:textColor="#000"
+        android:backgroundTint="@color/colorblue"
+        android:maxLength="400"
+        />
+    <com.google.android.material.circularreveal.coordinatorlayout.CircularRevealCoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+       <Button
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:padding="5dp"
+           android:background="@drawable/card_background"
+           android:textColor="#fff"
+           android:text="@string/send"
+           android:id="@+id/send"
+           android:layout_gravity="start|bottom"
+           android:textAppearance="@style/TextAppearance.AppCompat.Large"
+           android:layout_margin="10dp"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:background="@drawable/cancelbac"
+            android:textColor="#0B0E0B"
+            android:text="@string/cancel"
+            android:id="@+id/cancel"
+            android:layout_gravity="end|bottom"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:layout_margin="10dp"/>
+
+
+    </com.google.android.material.circularreveal.coordinatorlayout.CircularRevealCoordinatorLayout>
+
+
+</LinearLayout>
